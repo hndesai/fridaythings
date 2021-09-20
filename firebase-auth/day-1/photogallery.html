@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@materializecss/materialize@1.1.0-alpha/dist/css/materialize.min.css">
+    <title>Desai Fam Homepage</title>
+</head>
+<body class="brown lighten-4">
+
+    <nav class="z-depth-1 black darken-2">
+    <div class="nav-wrapper container">
+      <a href="#" class="brand-logo right z-depth-0">
+          <img class="circle responsive-img" src="img/desai_fam_logo.png" style="width: 55px; margin-top: 5px;">
+      </a>
+      <a href="#!" class="sidenav-trigger left" data-target="nav-small-to-med">
+          <i class="material-icons">menu</i>
+      </a>
+      <ul id="nav-fullscreen" class="left hide-on-med-and-down">
+        <li class="logged-in"><a href="#!" class="white-text modal-trigger" data-target="modal-gallery">View Gallery</a></li>
+        <li class="logged-in"><a href="#!" class="white-text modal-trigger" data-target="modal-upload">Upload to Gallery</a></li>
+        <li class="logged-in"><a href="#!" class="white-text" id="logout">Logout</a></li>
+        <li class="logged-out"><a href="#!" class="white-text modal-trigger" data-target="modal-login">Log In</a></li>
+        <li class="logged-out"><a href="#!" class="white-text modal-trigger" data-target="modal-signup">Sign Up</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <ul id="nav-small-to-med" class="sidenav black darken-2">
+        <li class="logged-in"><a href="#!" class="white-text modal-trigger" data-target="modal-gallery">View Gallery</a></li>
+        <li class="logged-in"><a href="#!" class="white-text modal-trigger" data-target="modal-upload">Upload to Gallery</a></li>
+        <li class="logged-in"><a href="#!" class="white-text" id="logout">Logout</a></li>
+        <li class="logged-out"><a href="#!" class="white-text modal-trigger" data-target="modal-login">Log In</a></li>
+        <li class="logged-out"><a href="#!" class="white-text modal-trigger" data-target="modal-signup">Sign Up</a></li>
+  </ul>
+
+
+  <!-- Compressed production jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- Compiled and minified JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/@materializecss/materialize@1.1.0-alpha/dist/js/materialize.min.js"></script>
+    <script>
+      $(document).ready(() =>{
+        $('.sidenav').sidenav();
+      })
+    </script>
+</body>
+</html>

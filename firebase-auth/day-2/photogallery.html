@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Import Google Icon Font -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@materializecss/materialize@1.1.0-alpha/dist/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <title>Cartoons Gallery Homepage</title>
+    <style>
+      header{
+        background: url(img/looneytunes.jpg);
+        background-size:cover;
+        background-position:center;
+        background-position-y: top;
+        background-position-x: center;
+        min-height:1000px;
+      }
+      .section{
+        padding-top: 4vw;
+        padding-bottom: 4vw;
+      }
+      @media screen and (max-width:670px){
+        header{
+          min-height:500px;
+        }
+      }
+      nav .brand-logo{
+        display: inline-block;
+        margin: 0 0.5rem;
+        animation: bounce; /* referring directly to the animation's @keyframe declaration */
+        animation-duration: 2s; /* don't forget to set a duration! */
+      }
+    </style>
+</head>
+<body class="brown lighten-4">
+    <!-- navbar -->
+    <header>
+      <nav class="z-depth-1 black darken-2">
+        <div class="nav-wrapper transparent container">
+          <a href="#" class="brand-logo right">
+              <img class="circle responsive-img" src="img/desai_fam_logo.png" style="width: 55px; margin-top: 5px;">
+              <!-- <i class="material icons"></i> -->
+          </a>
+          <!-- navbar for fullscreen -->
+          <ul id="nav-fullscreen" class="left hide-on-med-and-down">
+            <li class="logged-in"><a href="#!" class="white-text modal-trigger" data-target="view-gallery-modal">View Gallery</a></li>
+            <li class="logged-in"><a href="#!" class="white-text modal-trigger" data-target="upload-modal">Upload to Gallery</a></li>
+            <li class="logged-in"><a href="#!" class="white-text modal-trigger" data-target="view-account-modal">View Your Account</a></li>
+            <li class="logged-in"><a href="#!" class="white-text" id="logout">Logout</a></li>
+            <li class="logged-out"><a href="#!" class="white-text modal-trigger" data-target="login-modal">Log In</a></li>
+            <li class="logged-out"><a href="#!" class="white-text modal-trigger" data-target="signup-modal">Sign Up</a></li>
+          </ul>
+
+          <!-- sidenav -->
+          <ul class="sidenav black darken-2" id="nav-small-to-med">
+                <li class="logged-in"><a href="#!" class="white-text modal-trigger" data-target="view-gallery-modal">View Gallery</a></li>
+                <li class="logged-in"><a href="#!" class="white-text modal-trigger" data-target="upload-modal">Upload to Gallery</a></li>
+                <li class="logged-in"><a href="#!" class="white-text modal-trigger" data-target="view-account-modal">View Your Account</a></li>
+                <li class="logged-in"><a href="#!" class="white-text" id="logout-sidenav">Logout</a></li>
+                <li class="logged-out"><a href="#!" class="white-text modal-trigger" data-target="login-modal">Log In</a></li>
+                <li class="logged-out"><a href="#!" class="white-text modal-trigger" data-target="signup-modal">Sign Up</a></li>
+          </ul>
+          <!-- sidenav trigger -->
+          <a href="#!" class="sidenav-trigger left" data-target="nav-small-to-med">
+              <i class="material-icons">menu</i>
+          </a>
+        </div>
+    </nav>
+  </header>
+
+  <!-- picture grid -->
+  <section class="container section" id="picture-grid">
+    <div class="row">
+      <div class="col s12 l5 offset-l1 right-align">
+        <div class="card z-depth-3">
+          <div class="card-content">
+              <div class="card-title text-darken-4">
+                <h3>Family Guy Pictures</h3>
+                <img src="img/familyguy.jpg" alt="" class="responsive-img materialboxed" style="height:178px;">
+                <p>Family Guy</p>
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="col s12 l5 offset-l1 right-align">
+        <div class="card z-depth-3">
+          <div class="card-content">
+              <div class="card-title text-darken-4">
+                <h3>The Simpsons Pictures</h3>
+                <img src="img/thesimpsons.jpg" alt="" class="responsive-img materialboxed" style="height:178px;">
+                <p>The Simpsons</p>
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="col s12 l5 offset-l1 right-align">
+        <div class="card z-depth-3">
+          <div class="card-content">
+              <div class="card-title text-darken-4">
+                <h3>The Lion King Pictures</h3>
+                <img src="img/simba.jpg" alt="" class="responsive-img materialboxed" style="height:178px; width:350px">
+                <p>The Lion King</p>
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="col s12 l5 offset-l1 right-align">
+        <div class="card z-depth-3">
+          <div class="card-content">
+              <div class="card-title text-darken-4">
+                <h3>Wacky Races Pictures</h3>
+                <img src="img/wackyraces.jpg" alt="" class="responsive-img materialboxed" style="height:178px;width:350px">
+                <p>Wacky Races</p>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sign up modal -->
+  <div id="signup-modal" class="modal">
+    <div class="modal-content">
+      <h4>Sign Up</h4>
+      <form id="signup-form">
+        <div class="input-field">
+          <input type="email" class="type" id="signup-email" required>
+          <label for="signup-email" class="for">Enter An Email Address To Register</label>
+        </div>
+        <div class="input-field">
+          <input type="password" class="type" id="signup-password" required>
+          <label for="signup-password" class="for">Enter A Secure Password</label>
+        </div>
+        <button class="btn green darken-2 z-depth-1">Sign up</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Login modal -->
+  <div id="login-modal" class="modal">
+    <div class="modal-content">
+     <h4>Log in</h4>
+     <form id="login-form">
+        <div class="input-field">
+          <input type="email" class="type" id="login-email" required>
+          <label for="login-email" class="for">Enter Your Registered Email Address</label>
+        </div>
+        <div class="input-field">
+          <input type="password" class="type" id="login-password" required>
+          <label for="login-password" class="for">Enter Your Password</label>
+        </div>
+        <!-- TODO forgot password  -->
+        <button class="btn green darken-2 z-depth-1">Log In</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- view gallery modal -->
+  <div id="view-gallery-modal" class="modal">
+    <div class="modal-content">
+      <h4>View Gallery</h4>
+    </div>
+  </div>
+
+  <!-- upload modal -->
+  <div id="upload-modal" class="modal">
+    <div class="upload">
+      <h4>Upload a new cartoon picture</h4>
+      <div class="row">
+        <div class="col s12 offset-l1">
+          <div class="row" id="single-picture-upload">
+            <label for="single-picture-upload" class="for">Upload a cartoon picture</label>
+            <div class = "file-field input-field">
+                  <div class = "btn">
+                     <span>Browse</span>
+                     <input type = "file" />
+                  </div>
+                  <div class = "file-path-wrapper">
+                     <input class = "file-path validate" type = "text"
+                        placeholder = "Upload file" />
+                  </div>
+            </div>
+          </div>
+          <div class="row" id="multiple-pictures-upload">
+            <label for="multiple-pictures-upload" class="for">Upload multiple cartoon pictures</label>
+            <div class = "file-field input-field">
+                  <div class = "btn">
+                     <span>Browse</span>
+                     <input type = "file" multiple />
+                  </div>
+                  <div class = "file-path-wrapper">
+                     <input class = "file-path validate" type = "text"
+                        placeholder = "Upload multiple files" />
+                  </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- view account modal -->
+  <div id="view-account-modal" class="modal">
+    <div class="modal-content">
+      <h4>View Your Account</h4>
+    </div>
+  </div>
+
+  <!-- Compressed production jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- Compiled and minified JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/@materializecss/materialize@1.1.0-alpha/dist/js/materialize.min.js"></script>
+    <script>
+      $(document).ready(() =>{
+        $('.sidenav').sidenav();
+        $('.modal').modal();
+        $('.materialboxed').materialbox();
+        $('.parallax').parallax();
+      })
+    </script>
+</body>
+</html>
