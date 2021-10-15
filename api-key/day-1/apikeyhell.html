@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Import Google Icon Font -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!-- Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@materializecss/materialize@1.1.0-alpha/dist/css/materialize.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <title>Cartoons Gallery Homepage</title>
+    <style>
+      header {
+        background: url(img/key.png);
+        background-size: cover;
+        background-position: center;
+        background-position-y: top;
+        background-position-x: center;
+        min-height: 1000px;
+      }
+      .section {
+        padding-top: 4vw;
+        padding-bottom: 4vw;
+      }
+      @media screen and (max-width: 670px) {
+        header {
+          min-height: 500px;
+        }
+      }
+      nav .brand-logo {
+        display: inline-block;
+        margin: 0 0.5rem;
+        animation: bounce; /* referring directly to the animation's @keyframe declaration */
+        animation-duration: 2s; /* don't forget to set a duration! */
+      }
+    </style>
+  </head>
+  <body class="brown lighten-4">
+    <!-- navbar -->
+    <header>
+      <nav class="z-depth-1 black darken-2">
+        <div class="nav-wrapper transparent container">
+          <a href="#" class="brand-logo right">
+            <img
+              class="circle responsive-img"
+              src="img/smartkey.png"
+              style="width: 55px; margin-top: 5px"
+            />
+            <!-- <i class="material icons"></i> -->
+          </a>
+          <!-- navbar for fullscreen -->
+          <ul id="nav-fullscreen" class="left hide-on-med-and-down">
+            <li class="logged-in">
+              <a
+                href="#!"
+                class="white-text modal-trigger"
+                data-target="view-account-modal"
+                >View Your Account</a>
+            </li>
+            <li class="logged-in">
+              <a href="#!" class="white-text" id="signout">Sign Out</a>
+            </li>
+            <li class="logged-out">
+              <a
+                href="#!"
+                class="white-text modal-trigger"
+                data-target="signin-modal"
+                >Sign In</a>
+            </li>
+            <li class="logged-out">
+              <a
+                href="#!"
+                class="white-text modal-trigger"
+                data-target="signup-modal"
+                >Sign Up</a>
+            </li>
+          </ul>
+
+          <!-- sidenav -->
+          <ul class="sidenav black darken-2" id="nav-small-to-med">
+            <li class="logged-in">
+              <a
+                href="#!"
+                class="white-text modal-trigger"
+                data-target="view-account-modal"
+                >View Your Account</a>
+            </li>
+            <li class="logged-in">
+              <a href="#!" class="white-text" id="signout-sidenav">Sign Out</a>
+            </li>
+            <li class="logged-out">
+              <a
+                href="#!"
+                class="white-text modal-trigger"
+                data-target="signin-modal"
+                >Sign In</a>
+            </li>
+            <li class="logged-out">
+              <a
+                href="#!"
+                class="white-text modal-trigger"
+                data-target="signup-modal"
+                >Sign Up</a>
+            </li>
+          </ul>
+
+          <!-- sidenav trigger -->
+          <a
+            href="#!"
+            class="sidenav-trigger left"
+            data-target="nav-small-to-med">
+            <i class="material-icons">menu</i>
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Sign up modal -->
+    <div id="signup-modal" class="modal">
+      <div class="modal-content">
+        <h4>Sign Up</h4>
+        <form id="signup-form">
+          <div class="input-field">
+            <i class="material-icons prefix">email</i>
+            <input type="email" id="signup-email" class="validate" required />
+            <label for="signup-email">Email Address</label>
+          </div>
+          <div class="input-field">
+            <i class="material-icons prefix">password</i>
+            <input
+              type="password"
+              id="signup-password"
+              class="validate"
+              required
+            />
+            <label for="signup-password">Secure Password</label>
+          </div>
+          <button class="btn green darken-2 z-depth-1">Sign up</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Sign In modal -->
+    <div id="signin-modal" class="modal">
+      <div class="modal-content">
+        <h4>Sign In</h4>
+        <form id="signin-form">
+          <div class="input-field">
+            <input type="email" class="type" id="signin-email" required />
+            <label for="signin-email" class="for"
+              >Enter Your Registered Email Address</label
+            >
+          </div>
+          <div class="input-field">
+            <input type="password" class="type" id="signin-password" required />
+            <label for="signin-password" class="for">Enter Your Password</label>
+          </div>
+          <!-- TODO: forgot password  -->
+          <button class="btn green darken-2 z-depth-1">Sign In</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- view account modal -->
+    <div id="view-account-modal" class="modal">
+      <div class="modal-content">
+        <h4>View Your Account</h4>
+      </div>
+    </div>
+
+    <!-- firebase sdk addition -->
+    <!-- using the normal script tag  -->
+    <!-- https://blog.colegaw.in/why-the-new-firebase-web-v9-modular-sdk-is-a-game-changer-cks13fpb30gwdees1f8jj8op5 -->
+    <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-auth-compat.js"></script>
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyB2dgdPeyBxrEPbeXv-6M4Eiw5DkF1d7Ds",
+        authDomain: "percenthnd.firebaseapp.com",
+        projectId: "percenthnd",
+        storageBucket: "percenthnd.appspot.com",
+        messagingSenderId: "807018223306",
+        appId: "1:807018223306:web:e6ea54acbb1b625a47c633",
+        measurementId: "G-XSCXEM5WHQ",
+      };
+      const firebaseApp = firebase.initializeApp(firebaseConfig);
+      const db = firebaseApp.firestore();
+      const auth = firebaseApp.auth();
+    </script>
+
+    <!-- Compressed production jQuery -->
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/@materializecss/materialize@1.1.0-alpha/dist/js/materialize.min.js"></script>
+    <script src="./scripts/auth.js"></script>
+    <script src="./scripts/photogallery.js"></script>
+
+  </body>
+</html>
